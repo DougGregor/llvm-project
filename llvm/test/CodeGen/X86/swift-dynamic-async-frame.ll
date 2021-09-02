@@ -5,7 +5,7 @@
 ; CHECK-STATIC: btsq $60, %rbp
 
 ; CHECK-DYNAMIC-LABEL: foo:
-; CHECK-DYNAMIC: orq __Swift_enable_extended_frame@GOTPCREL(%rip), %rbp
+; CHECK-DYNAMIC: orq _swift_async_extendedFramePointerFlags@GOTPCREL(%rip), %rbp
 
 define void @foo(i8* swiftasync) "frame-pointer"="all" {
   ret void

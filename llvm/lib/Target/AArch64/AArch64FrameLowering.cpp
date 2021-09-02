@@ -1114,7 +1114,7 @@ void AArch64FrameLowering::emitPrologue(MachineFunction &MF,
       // The special symbol below is absolute and has a *value* that can be
       // combined with the frame pointer to signal an extended frame.
       BuildMI(MBB, MBBI, DL, TII->get(AArch64::LOADgot), AArch64::X16)
-          .addExternalSymbol("_Swift_enable_extended_frame", AArch64II::MO_GOT);
+          .addExternalSymbol("swift_async_extendedFramePointerFlags", AArch64II::MO_GOT);
       BuildMI(MBB, MBBI, DL, TII->get(AArch64::ORRXrs), AArch64::FP)
           .addUse(AArch64::FP)
           .addUse(AArch64::X16)

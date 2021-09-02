@@ -11,13 +11,13 @@
 ; CHECK-STATIC: orr x29, x29, #0x1000000000000000
 
 ; CHECK-DYNAMIC-LABEL: foo:
-; CHECK-DYNAMIC: adrp x16, __Swift_enable_extended_frame@GOTPAGE
-; CHECK-DYNAMIC: ldr x16, [x16, __Swift_enable_extended_frame@GOTPAGEOFF]
+; CHECK-DYNAMIC: adrp x16, _swift_async_extendedFramePointerFlags@GOTPAGE
+; CHECK-DYNAMIC: ldr x16, [x16, _swift_async_extendedFramePointerFlags@GOTPAGEOFF]
 ; CHECK-DYNAMIC: orr x29, x29, x16
 
 ; CHECK-DYNAMIC-32-LABEL: foo:
-; CHECK-DYNAMIC-32: adrp x16, __Swift_enable_extended_frame@GOTPAGE
-; CHECK-DYNAMIC-32: ldr w16, [x16, __Swift_enable_extended_frame@GOTPAGEOFF]
+; CHECK-DYNAMIC-32: adrp x16, _swift_async_extendedFramePointerFlags@GOTPAGE
+; CHECK-DYNAMIC-32: ldr w16, [x16, _swift_async_extendedFramePointerFlags@GOTPAGEOFF]
 ; CHECK-DYNAMIC-32: orr x29, x29, x16, lsl #32
 
 define void @foo(i8* swiftasync) "frame-pointer"="all" {

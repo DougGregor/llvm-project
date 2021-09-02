@@ -1350,7 +1350,7 @@ void X86FrameLowering::emitPrologue(MachineFunction &MF,
           .addUse(X86::RIP)
           .addImm(1)
           .addUse(X86::NoRegister)
-          .addExternalSymbol("_Swift_enable_extended_frame", X86II::MO_GOTPCREL)
+          .addExternalSymbol("swift_async_extendedFramePointerFlags", X86II::MO_GOTPCREL)
           .addUse(X86::NoRegister);
     } else {
       BuildMI(MBB, MBBI, DL, TII.get(X86::BTS64ri8), MachineFramePtr)
